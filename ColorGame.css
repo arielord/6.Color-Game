@@ -8,7 +8,7 @@ body {
 	padding-bottom: 30%;
 	float: left;
 	margin: 1.66%;
-	border-radius: 20%;
+	border-radius: 50%;
 	transition: background 0.5s;
 	-webkit-transition: background 0.5s;
 	-moz-transition: background 0.5s;
@@ -41,7 +41,7 @@ h1 {
 
 #container {
 	margin: 20px auto;
-	max-width: 600px;
+	max-width: 800px;
 }
 
 #colorDisplay {
