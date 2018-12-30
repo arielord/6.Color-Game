@@ -1,7 +1,7 @@
 var colors = generateRandomColors(9);
 var numSquares = 9;
 var pickedColor = pickColor();
-var squares = document.querySelectorAll(".square");
+var squares = document.querySelectorAll(".circle");
 var colorDisplay = document.getElementById("colorDisplay");
 var messageDisplay = document.getElementById("message");
 var resetButton = document.getElementById("reset");
@@ -43,10 +43,10 @@ function init(){
 			if (numSquares > squares.length){
 				for(var i = 0; i < 3; i++){
 					var div = document.createElement("div");
-					div.classList.add("square");
+					div.classList.add("circle");
 					document.getElementById("container").appendChild(div);
 				}
-				squares = document.querySelectorAll(".square");
+				squares = document.querySelectorAll(".circle");
 				clicked();
 			}
 		}
@@ -54,7 +54,7 @@ function init(){
 		})
 	}
 
-	squares = document.querySelectorAll(".square");
+	squares = document.querySelectorAll(".circle");
 
 	//Setting up squares
 
@@ -94,7 +94,7 @@ function reset() {
 	resetButton.textContent = "New Colors";
 	colorDisplay.textContent = pickedColor;
 	messageDisplay.textContent = "";
-	squares = document.querySelectorAll(".square");
+	squares = document.querySelectorAll(".circle");
 
 	for(var i = 0; i < squares.length; i++){
 		if(colors[i]) {
