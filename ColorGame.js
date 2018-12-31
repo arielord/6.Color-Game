@@ -8,8 +8,9 @@ var resetButton = document.getElementById("reset");
 var h1 = document.querySelector("h1");
 var modeButtons = document.querySelectorAll(".mode")
 
-var streak = 3;
-var streakMultiplier = 3;
+// Going to try not to use a global variable.
+// var streak = 3;
+// var streakMultiplier = 3;
 
 init();
 
@@ -75,14 +76,14 @@ function clicked(){
 		var clickedColor = this.style.backgroundColor;
 		//compare color to pickedColor
 		if(clickedColor === pickedColor){
-			streak += 1;
+			//streak += 1;
 			messageDisplay.textContent = "Correct!";
 			h1.style.backgroundColor = pickedColor;
 			resetButton.textContent = "Play Again?"
 			changeColors(clickedColor);
 		}
 		else{
-			streak -= 1;
+			//streak -= 1;
 			this.style.backgroundColor = "#232323";
 			messageDisplay.textContent = "Try Again!";
 		}
@@ -145,6 +146,8 @@ function randomColor(){
 	return rgb;
 }
 
+// A function that can dynamically change the difficulty.
+// Try not to rely on var strak and see if I can contain it within this one function
 function dynamicDifficulty(){
 
 }
