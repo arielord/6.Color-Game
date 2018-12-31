@@ -1,7 +1,7 @@
 var colors = generateRandomColors(9);
-var numSquares = 9;
+var numCircles = 9;
 var pickedColor = pickColor();
-var squares = document.querySelectorAll(".circle");
+var circles = document.querySelectorAll(".circle");
 var colorDisplay = document.getElementById("colorDisplay");
 var messageDisplay = document.getElementById("message");
 var resetButton = document.getElementById("reset");
@@ -23,51 +23,54 @@ function init(){
 		modeButtons[3].classList.remove("selected");
 		this.classList.add("selected");
 		if(this.textContent === "Easy") {
-			numSquares = 3;
+			numCircles = 3;
 		}
 		else if(this.textContent === "Intermediate"){
-			numSquares = 6;
+			numCircles = 6;
 		}
 		else if(this.textContent === "Hard"){
-			numSquares = 9;
+			numCircles = 9;
 		}
 		else {
-			if (streak <= 1){
-				streakMultiplier -= 1;
-			}
-			else{
-				streakMultiplier += 1;
-			}
-			numSquares = streakMultiplier*3;
-			//Add dynamic mode
-			if (numSquares > squares.length){
-				for(var i = 0; i < 3; i++){
-					var div = document.createElement("div");
-					div.classList.add("circle");
-					document.getElementById("container").appendChild(div);
-				}
-				squares = document.querySelectorAll(".circle");
-				clicked();
-			}
+			numCircles = 9
 		}
+		// else {
+		// 	if (streak <= 1){
+		// 		streakMultiplier -= 1;
+		// 	}
+		// 	else{
+		// 		streakMultiplier += 1;
+		// 	}
+		// 	numCircles = streakMultiplier*3;
+		// 	//Add dynamic mode
+		// 	if (numCircles > circles.length){
+		// 		for(var i = 0; i < 3; i++){
+		// 			var div = document.createElement("div");
+		// 			div.classList.add("circle");
+		// 			document.getElementById("container").appendChild(div);
+		// 		}
+		// 		circles = document.querySelectorAll(".circle");
+		// 		clicked();
+		// 	}
+		// }
 		reset();
 		})
 	}
 
-	squares = document.querySelectorAll(".circle");
+	circles = document.querySelectorAll(".circle");
 
-	//Setting up squares
+	//Setting up circles
 
 	clicked();
 	reset();
 }
 
 function clicked(){
-	for(var i = 0; i < squares.length; i++){
-	squares[i].style.backgroundColor = colors[i];
+	for(var i = 0; i < circles.length; i++){
+	circles[i].style.backgroundColor = colors[i];
 	//add event listener to each square
 
-	squares[i].addEventListener("click", function(){
+	circles[i].addEventListener("click", function(){
 		//get color of clicked square
 		var clickedColor = this.style.backgroundColor;
 		//compare color to pickedColor
@@ -89,20 +92,20 @@ function clicked(){
 
 
 function reset() {
-	colors = generateRandomColors(numSquares);
+	colors = generateRandomColors(numCircles);
 	pickedColor = pickColor();
 	resetButton.textContent = "New Colors";
 	colorDisplay.textContent = pickedColor;
 	messageDisplay.textContent = "";
-	squares = document.querySelectorAll(".circle");
+	circles = document.querySelectorAll(".circle");
 
-	for(var i = 0; i < squares.length; i++){
+	for(var i = 0; i < circles.length; i++){
 		if(colors[i]) {
-			squares[i].style.display = "block";
-			squares[i].style.backgroundColor = colors[i];
+			circles[i].style.display = "block";
+			circles[i].style.backgroundColor = colors[i];
 		}
 		else {
-			squares[i].style.display = "none";
+			circles[i].style.display = "none";
 		}
 	}
 	h1.style.backgroundColor = "steelblue"
@@ -113,8 +116,8 @@ resetButton.addEventListener("click", function(){
 })
 
 function changeColors(color){
-	for(var i = 0; i < squares.length; i++){
-		squares[i].style.backgroundColor = color;
+	for(var i = 0; i < circles.length; i++){
+		circles[i].style.backgroundColor = color;
 	};
 }
 
@@ -140,6 +143,10 @@ function randomColor(){
 	var b = Math.floor(Math.random() * 256);
 	var rgb = "rgb(" + r + ", " + g + ", " + b + ")";
 	return rgb;
+}
+
+function dynamicDifficulty(){
+
 }
 
 // var div = document.createElement("div");
